@@ -39,3 +39,5 @@ class RegisterView(CreateView):
     form_class = UserCreationForm
     template_name = 'register.html'
     success_url = reverse_lazy('login')  # Redirect to login after registration
+
+UserCreationForm()", "relationship_app/register.html

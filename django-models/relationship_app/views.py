@@ -94,3 +94,5 @@ def add_book(request):
     else:
         form = BookForm()
     return render(request, 'add_book.html', {'form': form})
+
+"relationship_app.can_change_book", "relationship_app.can_delete_book"

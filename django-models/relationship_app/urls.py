@@ -50,3 +50,14 @@ urlpatterns = [
     path('librarian-dashboard/', librarian_view, name='librarian_view'),
     path('member-dashboard/', member_view, name='member_view'),
 ]
+
+# relationship_app/urls.py
+
+from django.urls import path
+from .views import add_book, edit_book, delete_book
+
+urlpatterns = [
+    path('add-book/', add_book, name='add_book'),
+    path('edit-book/<int:pk>/', edit_book, name='edit_book'),
+    path('delete-book/<int:pk>/', delete_book, name='delete_book'),
+]

@@ -75,3 +75,22 @@ def member_view(request):
     return render(request, 'member_view.html')
 
 relationship_app/member_view.html", "relationship_app/librarian_view.html", "relationship_app/admin_view.html
+
+# relationship_app/views.py
+
+from django.contrib.auth.decorators import permission_required
+from django.shortcuts import render, redirect
+from .models import Book
+from .forms import BookForm
+
+# Add Book View (only users with 'can_add_book' permission)
+@permission_required('relationship_app.can_add_book')
+def add_book(request):
+    if request.method == 'POST':
+        form = BookForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('book_list')  # Redirect to a book listing view after adding
+    else:
+        form = BookForm()
+    return render(request, 'add_book.html', {'form': form})

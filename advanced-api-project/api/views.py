@@ -40,6 +40,7 @@ from rest_framework import generics
 from .models import Book
 from .serializers import BookSerializer
 from django_filters.rest_framework import DjangoFilterBackend
+from django_filters import rest_framework
 
 class BookListView(generics.ListAPIView):
     queryset = Book.objects.all()
@@ -48,3 +49,5 @@ class BookListView(generics.ListAPIView):
     filterset_fields = ['title', 'author__name', 'publication_year']  # Filter by book title, author's name, and publication year
     search_fields = ['title', 'author__name']  # Search by book title or author'
     ordering_fields = ['title', 'publication_year']  # Allow
+    
+

@@ -50,7 +50,6 @@ class BookListView(generics.ListAPIView):
     filters.SearchFilter = ['title', 'author__name']  # Search by book title or author'
     ordering_fields = ['title', 'publication_year']  # Allow
     
-"filters.OrderingFilter"
 from django.urls import reverse
 from rest_framework.test import APITestCase, APIClient
 from rest_framework import status

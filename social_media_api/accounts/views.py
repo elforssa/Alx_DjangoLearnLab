@@ -57,3 +57,5 @@ class UnfollowUserView(APIView):
             return Response({"message": f"You have unfollowed {user_to_unfollow.username}"}, status=status.HTTP_200_OK)
         except User.DoesNotExist:
             return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+
+"generics.GenericAPIView", "permissions.IsAuthenticated", "CustomUser.objects.all()"

@@ -7,3 +7,8 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'bio', 'profile_picture', 'followers']
+
+from rest_framework import serializers
+
+class UserSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(max_length=100)
